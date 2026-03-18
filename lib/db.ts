@@ -11,7 +11,9 @@ if (!connectionString) {
   );
 }
 
-const globalForPostgres = global;
+const globalForPostgres = global as typeof globalThis & {
+  postgresClient?: ReturnType<typeof postgres>;
+};
 
 const client = globalForPostgres.postgresClient ?? postgres(connectionString);
 
