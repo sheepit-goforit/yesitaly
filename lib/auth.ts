@@ -19,4 +19,5 @@ export const auth = betterAuth({
   },
   secret: process.env.BETTER_AUTH_SECRET,
   basePath: "/api/auth",
+  baseURL: process.env.BETTER_AUTH_URL,
 });
