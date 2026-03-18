@@ -1,24 +1,47 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+YesItaly is a Next.js application with authentication (better-auth), PostgreSQL (Drizzle ORM), and a full UI component library.
+
 ## Getting Started
 
-First, run the development server:
+### Environment Variables
+
+Copy `.env.example` to `.env` and fill in the required values:
+
+```bash
+cp .env.example .env
+```
+
+| Variable | Description |
+|----------|-------------|
+| `DATABASE_URL` | PostgreSQL connection string |
+| `BETTER_AUTH_SECRET` | Secret key for auth (min 32 characters) |
+| `BETTER_AUTH_URL` | Full app URL (e.g. `http://localhost:3000`) |
+| `NEXT_PUBLIC_APP_URL` | Same as BETTER_AUTH_URL for client-side auth |
+
+### Database Setup
+
+Push the schema to your database:
+
+```bash
+npm run db:push
+```
+
+### Development
+
+Run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) with your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Other commands:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `npm run build` - Build for production
+- `npm run start` - Start production server
+- `npm run db:studio` - Open Drizzle Studio for database management
 
 ## Learn More
 
